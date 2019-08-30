@@ -158,6 +158,9 @@ class DepthCacheManager(object):
         self._last_update_id = None
         self._depth_message_buffer = []
 
+        self._depth_cache._asks = {}
+        self._depth_cache._bids = {}
+
         res = self._client.get_order_book(symbol=self._symbol, limit=self._limit)
 
         # process bid and asks from the order book
